@@ -1,16 +1,22 @@
 package com.example.clientesoafirestore.model;
 
-public class Program {
+import java.io.Serializable;
 
-    private  String name, verification, duration;
-    private int programCode, modality;
+public class Program implements Serializable {
 
-    public Program(String name, String verification, String duration, int programCode, int modality) {
+    private  String name, verification, modality,programCode;
+    private int duration;
+
+    public Program(String name, String verification, int duration, String programCode, String modality) {
         this.name = name;
         this.verification = verification;
         this.duration = duration;
         this.programCode = programCode;
         this.modality = modality;
+    }
+
+    public Program(){
+
     }
 
     public String getName() {
@@ -29,27 +35,27 @@ public class Program {
         this.verification = verification;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
-    public int getProgramCode() {
+    public String getProgramCode() {
         return programCode;
     }
 
-    public void setProgramCode(int programCode) {
+    public void setProgramCode(String programCode) {
         this.programCode = programCode;
     }
 
-    public int getModality() {
+    public String getModality() {
         return modality;
     }
 
-    public void setModality(int modality) {
+    public void setModality(String modality) {
         this.modality = modality;
     }
 }

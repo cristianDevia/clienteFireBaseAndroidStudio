@@ -1,14 +1,15 @@
 package com.example.clientesoafirestore.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Student {
+public class Student implements Serializable {
 
-    private String name, code, email, gender;
-    private int id, celphone;
-    private Date dateOfBirth;
+    private String name, code, email, gender, celphone;
+    private int id;
+    private String dateOfBirth;
 
-    public Student(String name, String code, String email, String gender, int id, int celphone, Date dateOfBirth) {
+    public Student(String name, String code, String email, String gender, int id, String celphone, String dateOfBirth) {
         this.name = name;
         this.code = code;
         this.email = email;
@@ -16,6 +17,10 @@ public class Student {
         this.id = id;
         this.celphone = celphone;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public  Student(){
+
     }
 
     public String getName() {
@@ -58,19 +63,19 @@ public class Student {
         this.id = id;
     }
 
-    public int getCelphone() {
+    public String getCelphone() {
         return celphone;
     }
 
-    public void setCelphone(int celphone) {
+    public void setCelphone(String celphone) {
         this.celphone = celphone;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 }

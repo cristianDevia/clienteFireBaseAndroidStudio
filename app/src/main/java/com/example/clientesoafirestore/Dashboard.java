@@ -35,4 +35,19 @@ public class Dashboard extends AppCompatActivity {
         Intent update = new Intent(this, Update.class);
         startActivity(update);
     }
+    public void btnList(View view)
+    {
+        Intent list = new Intent(this, List.class);
+        startActivity(list);
+    }
+    public void btnListStudents(View view)
+    {
+        Intent listStudents = new Intent(this, ListStudents.class);
+        startActivity(listStudents);
+    }
+    public void btnListPrograms(View view)
+    {
+        Intent listPrograms = new Intent(this, ListPrograms.class);
+        startActivity(listPrograms);
+    }
 }

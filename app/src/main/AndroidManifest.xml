@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Update"></activity>
+        <activity android:name=".ListStudents"></activity>
+        <activity android:name=".ListPrograms" />
+        <activity android:name=".List" />
+        <activity android:name=".Update" />
         <activity android:name=".Delete" />
         <activity android:name=".Search" />
         <activity android:name=".Add" />
