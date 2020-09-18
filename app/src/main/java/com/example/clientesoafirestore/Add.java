@@ -2,17 +2,15 @@ package com.example.clientesoafirestore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.clientesoafirestore.model.Program;
 import com.example.clientesoafirestore.model.Registry;
 import com.example.clientesoafirestore.services.Services;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class Add extends AppCompatActivity {
 
@@ -26,6 +24,8 @@ public class Add extends AppCompatActivity {
     private EditText txtRegistryPrice;
 
     private Services services;
+    private String cadProgram;
+    private String cadStudent;
 
 
     @Override
@@ -33,11 +33,20 @@ public class Add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+        Intent intent = getIntent();
+        cadProgram = intent.getStringExtra("MSJPROGRAM");
+
+        Intent intent1 = getIntent();
+        cadStudent = intent1.getStringExtra("MSJSTUDENT");
+
+
         txtRegistryNumber = (EditText) findViewById(R.id.txtRegistryNumber);
         txtRegistryDate = (EditText) findViewById(R.id.txtRegistryDate);
         txtStudentID = (EditText) findViewById(R.id.txtStudentID);
+        txtStudentID.setText(cadStudent);
         txtStudentCode = (EditText) findViewById(R.id.txtStudentCode);
         txtProgram = (EditText) findViewById(R.id.txtProgram);
+        txtProgram.setText(cadProgram);
         txtCredits = (EditText) findViewById(R.id.txtCreditsNumber);
         txtPPA = (EditText) findViewById(R.id.txtPPA);
         txtRegistryPrice = (EditText) findViewById(R.id.txtPrice);
@@ -50,7 +59,8 @@ public class Add extends AppCompatActivity {
         boolean response = false;
         int registryNumber, studentID, creditsNumber;
         double ppa, price;
-        String studentCode, program;
+        String studentCode;
+        String program;
         String registryDate;
         Registry registry = null;
 
@@ -99,4 +109,15 @@ public class Add extends AppCompatActivity {
         txtRegistryPrice.setText("");
     }
 
+    public void goToProgram(View view)
+    {
+        Intent goProgram = new Intent(this, ListPrograms.class);
+        startActivity(goProgram);
+    }
+
+    public void goToStudent(View view)
+    {
+        Intent goStudent = new Intent(this, ListStudents.class);
+        startActivity(goStudent);
+    }
 }

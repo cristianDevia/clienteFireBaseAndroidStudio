@@ -3,6 +3,7 @@ package com.example.clientesoafirestore;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,6 +28,7 @@ public class ListPrograms extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String cadProgram = "";
     private ArrayList<String> arrayProgram = new ArrayList<String>();
+    private  ArrayList<Program> goProgram = new ArrayList<Program>();
 
 
     @Override
@@ -51,6 +53,7 @@ public class ListPrograms extends AppCompatActivity {
                                             " - " + program.getDuration() + " - " + program.getModality();
 
                                 arrayProgram.add(cadProgram);
+                                goProgram.add(program);
 
                             }
                         }
@@ -65,6 +68,7 @@ public class ListPrograms extends AppCompatActivity {
                                         " - " + program.getDuration() + " - " + program.getModality();
 
                                 arrayProgram.add(cadProgram);
+                                goProgram.add(program);
                             }
                         }
                     }
@@ -76,8 +80,8 @@ public class ListPrograms extends AppCompatActivity {
         toList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Toast.makeText(getApplicationContext(), "Pos : " + i + "Valor : " + adapterView.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
-                //irAEmpleado(adapterView.getItemAtPosition(i).toString());
+
+
             }
         });
     }
@@ -89,9 +93,25 @@ public class ListPrograms extends AppCompatActivity {
         toList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                //Toast.makeText(getApplicationContext(),  "Valor : " + adapterView.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                //goToAddRegistry(adapterView.getItemAtPosition(i).toString());
+                for(int j = 0; j< goProgram.size(); j++)
+                {
+                    Program temp = goProgram.get(j);
+                    if(j == i)
+                    {
+                        goToAddRegistry(temp.getProgramCode());
+                        break;
+                    }
+                }
             }
         });
         Toast.makeText(this, "refreshing...", Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAddRegistry(String program){
+        Intent intent = new Intent(this, Add.class);
+        intent.putExtra("MSJPROGRAM",program);
+        startActivity(intent);
     }
 }

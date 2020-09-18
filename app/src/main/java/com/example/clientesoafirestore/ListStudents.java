@@ -3,6 +3,7 @@ package com.example.clientesoafirestore;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.clientesoafirestore.model.Program;
 import com.example.clientesoafirestore.model.Registry;
 import com.example.clientesoafirestore.model.Student;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +29,7 @@ public class ListStudents extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String cadStudents = "";
     private ArrayList<String> arrayStudents = new ArrayList<String>();
+    private  ArrayList<Student> goStudent = new ArrayList<Student>();
 
 
 
@@ -53,6 +56,7 @@ public class ListStudents extends AppCompatActivity {
                                                 student.getDateOfBirth() + " - " + student.getGender();
 
                                 arrayStudents.add(cadStudents);
+                                goStudent.add(student);
 
                             }
                         }
@@ -68,6 +72,7 @@ public class ListStudents extends AppCompatActivity {
                                         student.getDateOfBirth() + " - " + student.getGender();
 
                                 arrayStudents.add(cadStudents);
+                                goStudent.add(student);
                             }
                         }
                     }
@@ -92,9 +97,23 @@ public class ListStudents extends AppCompatActivity {
         toList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                for(int j = 0; j< goStudent.size(); j++)
+                {
+                    Student temp = goStudent.get(j);
+                    if(j == i)
+                    {
+                        goToAddRegistry(String.valueOf(temp.getId()));
+                        break;
+                    }
+                }
             }
         });
         Toast.makeText(this, "refreshing...", Toast.LENGTH_SHORT).show();
+    }
+
+    public void goToAddRegistry(String student){
+        Intent intent = new Intent(this, Add.class);
+        intent.putExtra("MSJSTUDENT",student);
+        startActivity(intent);
     }
 }
