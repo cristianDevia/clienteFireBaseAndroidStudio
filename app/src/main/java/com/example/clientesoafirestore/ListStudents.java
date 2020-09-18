@@ -103,6 +103,7 @@ public class ListStudents extends AppCompatActivity {
                     if(j == i)
                     {
                         goToAddRegistry(String.valueOf(temp.getId()));
+                        //goToAddRegistry(temp);
                         break;
                     }
                 }

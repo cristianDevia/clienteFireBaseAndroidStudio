@@ -43,7 +43,11 @@ public class Add extends AppCompatActivity {
         txtRegistryNumber = (EditText) findViewById(R.id.txtRegistryNumber);
         txtRegistryDate = (EditText) findViewById(R.id.txtRegistryDate);
         txtStudentID = (EditText) findViewById(R.id.txtStudentID);
-        txtStudentID.setText(cadStudent);
+        if(cadStudent != "")
+        {
+            txtStudentID.setText(cadStudent );
+        }
+
         txtStudentCode = (EditText) findViewById(R.id.txtStudentCode);
         txtProgram = (EditText) findViewById(R.id.txtProgram);
         txtProgram.setText(cadProgram);

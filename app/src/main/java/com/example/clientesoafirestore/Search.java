@@ -77,7 +77,7 @@ public class Search extends AppCompatActivity {
                             }
                         }
                     } else {
-                        //Log.w(TAG, "Error getting documents.", task.getException());
+                        Toast.makeText(null, "Registro no encontrado", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
