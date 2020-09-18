@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "548971254054",
+    "firebase_url": "https://proyectosoa2020universidad.firebaseio.com",
+    "project_id": "proyectosoa2020universidad",
+    "storage_bucket": "proyectosoa2020universidad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548971254054:android:b7fc0827c00d39cb5e71e7",
+        "android_client_info": {
+          "package_name": "com.example.clientesoafirestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548971254054-aqbvh9rt34ea65dmo236nn9tqp28frup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlR3c_-GSCZCUyMdyY1WWiYcQ0rfGN3TE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548971254054-aqbvh9rt34ea65dmo236nn9tqp28frup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
